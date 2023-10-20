@@ -6,44 +6,69 @@ import { AiFillEyeInvisible } from 'react-icons/ai';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import './login.css'
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
     const [show, setshow] =useState(false);
+    const[error, setError]= useState('');
 
-    const {githubSignIn, googleSignIn, createUser}= useContext(AuthContext)
+    const { githubSignIn, googleSignIn,loginUser } = useContext(AuthContext);
+
 
     const login = (e)=>{
         e.preventDefault();
 
         const form = e.target;
-        // const name = form.name.value;
+        const name = form.name.value;
         const email= form.email.value;
         const password= form.password.value;
 
         const userLoggedIn ={ email, password};
         console.log(userLoggedIn);
 
+
+        // sign in user
+        loginUser(email, password)
+        .then(result=>{
+            console.log(result.user);
+            if(result.user.emailVerified){
+                Swal.fire('Great job','User logged in successfully', 'success');
+            }else{
+                Swal.fire('Opps','Please verify your email address','warning')
+            }
+          })
+
+        
+          .catch(error => {
+            console.error('Error', error.message);
+            Swal.fire('Opps', 'Something went wrong', 'error');
+        });
+
         
     }
+
+    // sign in with google if have account
     const handleSignInByGoogle=()=>{
         googleSignIn()
         .then(result=>{
             console.log(result.user);
         })
-        .then(error=>{
-            console.error("Error", error);
+        .then(error2=>{
+            console.error( error2.message);
         })
         
 
     }
+
+    // sign in with gitHub if have account
     const handleGithubSignIn =()=>{
         githubSignIn()
         .then(result=>{
             console.log(result.user);
         })
         .then(error=>{
-            console.error('Error', error);
+            console.error( error.message);
         })
 
     }
@@ -57,10 +82,10 @@ const Login = () => {
                         <h3 className='font-extrabold text-3xl bg-gradient-to-br capitalize from-green-600 to-yellow-500 text-transparent bg-clip-text p-2'>Good to see you again</h3>
                     </div>
                     <form onSubmit={login}>
-                        {/* <div>
+                        <div>
                             <label htmlFor="name" className='font-bold text-lg'>Name</label><br />
                             <input type="text" name="name" id="" className='w-full bg-slate-200 p-3 rounded-lg' placeholder='Enter your name' />
-                        </div> */}
+                        </div>
                         <div className='my-8'>
                             <label htmlFor="email" className='font-bold text-lg'>Email</label><br />
                             <input type="email" name="email" id="" className='w-full bg-slate-200 p-3 rounded-lg' placeholder='Enter a valid email' />
@@ -74,6 +99,7 @@ const Login = () => {
                                 }
                             </p>
                         </div>
+
                         <div>
                             <button className='btn w-full bg-green-400 hover:bg-green-500 font-bold text-white'>Log in</button>
                         </div>

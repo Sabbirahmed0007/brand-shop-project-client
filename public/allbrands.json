@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "brandName": "Apple",
+    "brandImage": "apple.png"
+  },
+  {
+    "id": 2,
+    "brandName": "Samsung",
+    "brandImage": "samsung.png"
+  },
+  {
+    "id": 3,
+    "brandName": "Sony",
+    "brandImage": "sony.png"
+  },
+  {
+    "id": 4,
+    "brandName": "Google",
+    "brandImage": "google.png"
+  },
+  {
+    "id": 5,
+    "brandName": "Intel",
+    "brandImage": "intel.png"
+  },
+  {
+    "id": 6,
+    "brandName": "Microsoft",
+    "brandImage": "microsoft.png"
+  }
+]

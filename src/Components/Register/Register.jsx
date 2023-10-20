@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './register.css';
 import { BiSolidShow } from 'react-icons/Bi';
 import { AiFillEyeInvisible } from 'react-icons/ai';
+import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
+
+    const {createUser}= useContext(AuthContext);
 
     const [show, setshow]= useState(false);
 
@@ -20,7 +24,39 @@ const Register = () => {
         const newUser={name, email, password, terms};
         
         console.log('Created successfully', newUser);
+
         
+        // password validation
+        if (password.length < 8) {
+            console.log("Password must be  8 characters or longer");
+            Swal.fire('',"Password must be  8 characters or longer",'error');
+      
+            return;
+          } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/) {
+            return Swal.fire(
+              "Your password must contain at least a upperCase characters and a number.",'warning'
+            );
+          }
+
+
+        // create user by email and password
+        createUser( email, password)
+        .then(result=>{
+            console.log(result.user);
+            if(result.user.isAnonymous){
+
+                Swal.fire('','Account already exist','error');
+            }
+            else{
+                Swal.fire('Great Job','User created successfully','success')
+
+            }
+        })
+        .catch(error=>{
+            console.error('Error', error);
+            Swal.fire('Opps','Something went wrong','error');
+        })
+
     }
 
 
@@ -35,15 +71,15 @@ const Register = () => {
                 <form  onSubmit={handleCreateUser}>
                 <div>
                         <label htmlFor="name" className='font-bold text-lg'>Name</label><br />
-                        <input type="text" name="name" id="" className='w-full bg-slate-200 p-3 rounded-lg' placeholder='Enter your name' />
+                        <input type="text" name="name" id="" className='w-full bg-slate-200 p-3 text-black rounded-lg' placeholder='Enter your name' />
                     </div>
                     <div className='my-8'>
                         <label htmlFor="email" className='font-bold text-lg'>Email</label><br />
-                        <input type="email" name="email" id="" className='w-full bg-slate-200 p-3 rounded-lg' placeholder='Enter a valid email' />
+                        <input type="email" name="email" id="" className='w-full bg-slate-200 p-3 text-black rounded-lg' placeholder='Enter a valid email' />
                     </div>
                     <div className='my-8 relative'>
                         <label htmlFor="password" className='font-bold text-lg'>Password</label><br />
-                        <input type={show ? "text" : "password"} name="password" id="" className='w-full bg-slate-200 text-black p-3 rounded-lg ' placeholder='Enter password' />
+                        <input type={show ? "text" : "password"} name="password" id="" className='w-full  bg-slate-200 text-black p-3 rounded-lg ' placeholder='Enter password' />
                         <p onClick={()=>setshow(!show)} className='absolute right-4 top-10'>
                                 {
                                     show? <BiSolidShow className=' text-2xl text-black'></BiSolidShow>:<AiFillEyeInvisible className='text-2xl text-black'></AiFillEyeInvisible>

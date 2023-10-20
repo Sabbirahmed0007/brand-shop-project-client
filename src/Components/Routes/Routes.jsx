@@ -7,6 +7,7 @@ import AddProducts from '../Pages/AddProducts/AddProducts';
 import MyCart from '../Pages/MyCart/MyCart';
 import Login from '../Pages/Login/Login';
 import Register from '../Register/Register';
+import Brands from '../Sections/Brands/Brands';
 
 const routes= createBrowserRouter([
     {
@@ -33,7 +34,8 @@ const routes= createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
-            }
+            },
+
         ]
     }
 ])

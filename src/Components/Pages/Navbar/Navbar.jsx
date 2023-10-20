@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Navbar = () => {
+    const {user, logOut}= useContext(AuthContext);
+    console.log(user);
     const navLinks=<div className='font-bold flex flex-col lg:flex-row'>
         <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/'}>Home</NavLink></li>
         <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/addproducts'}>Add Products</NavLink></li>
@@ -9,16 +12,21 @@ const Navbar = () => {
         <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/register'}>Register</NavLink></li>
     </div>
 
+const handleLogOut=()=>{
+    logOut()
+    .then(()=>{
+        console.log('You logged out successfully');
+        swal("Good job!", "You Logged out successfully!", "success");
+    })
+    .catch(error=>{
+        console.error("Error", error.massage);
+    })
+}
+
     
     return (
         <div>
-            {/* <h2>Logo with photo</h2>
-            <h1>Navbar here</h1>
-            <div>
-                <NavLink to={'/'}>Home</NavLink>
-                <NavLink to={'/addproducts'}>Add Products</NavLink>
-                <NavLink to={'/mycart'}>My Cart</NavLink>
-            </div> */}
+           
             <div className="navbar shadow-lg mt-0">
                     <div className="navbar-start">
                     <div className="dropdown">
@@ -39,8 +47,22 @@ const Navbar = () => {
                     </ul>
                     </div>
                     <div className="navbar-end">
+                    <div className=" flex items-center justify-center">
+                    <li className='list-none'><a href="https://www.sabbirahmed3071@gmail.com">{user&& user.email}</a></li>
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            {
+                                user?<div className="w-10 rounded-full"><img src={user && user.photoURL} /></div>: " "
+                            }
+                            
+                        </label>
+                    </div>
                     <div>
-                        <Link to={'/login'} className='btn font-bold btn-sm'>Log in</Link>
+                        {
+                            user? <Link onClick={handleLogOut} className='btn  font-bold btn-sm' to={'/'}>Log Out</Link>
+                            :
+                            <Link className='btn  font-bold btn-sm' to={'/login'}>Log In</Link>
+
+                        }
                     </div>
                     </div>
                 </div>
