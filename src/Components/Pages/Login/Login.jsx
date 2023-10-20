@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BiSolidShow } from 'react-icons/Bi';
 import { AiFillEyeInvisible } from 'react-icons/ai';
+
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import './login.css'
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
+
+    const [show, setshow] =useState(false);
+
+    const {githubSignIn, googleSignIn, createUser}= useContext(AuthContext)
 
     const login = (e)=>{
         e.preventDefault();
@@ -15,15 +21,30 @@ const Login = () => {
         const email= form.email.value;
         const password= form.password.value;
 
-        const userLoggedIn ={name, email, password};
+        const userLoggedIn ={ email, password};
         console.log(userLoggedIn);
 
         
     }
     const handleSignInByGoogle=()=>{
+        googleSignIn()
+        .then(result=>{
+            console.log(result.user);
+        })
+        .then(error=>{
+            console.error("Error", error);
+        })
+        
 
     }
     const handleGithubSignIn =()=>{
+        githubSignIn()
+        .then(result=>{
+            console.log(result.user);
+        })
+        .then(error=>{
+            console.error('Error', error);
+        })
 
     }
 
@@ -44,9 +65,14 @@ const Login = () => {
                             <label htmlFor="email" className='font-bold text-lg'>Email</label><br />
                             <input type="email" name="email" id="" className='w-full bg-slate-200 p-3 rounded-lg' placeholder='Enter a valid email' />
                         </div>
-                        <div className='my-8'>
+                        <div className='my-8 relative'>
                             <label htmlFor="password" className='font-bold text-lg'>Password</label><br />
-                            <input type="password" name="password" id="" className='w-full bg-slate-200 p-3 rounded-lg' placeholder='Enter password' />
+                            <input type={show ? "text" : "password"} name="password" id="" className='w-full bg-slate-200 text-black p-3 rounded-lg ' placeholder='Enter password' />
+                        <p onClick={()=>setshow(!show)} className='absolute right-4 top-10'>
+                                {
+                                    show? <BiSolidShow className=' text-2xl text-black'></BiSolidShow>:<AiFillEyeInvisible className='text-2xl text-black'></AiFillEyeInvisible>
+                                }
+                            </p>
                         </div>
                         <div>
                             <button className='btn w-full bg-green-400 hover:bg-green-500 font-bold text-white'>Log in</button>

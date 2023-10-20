@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './register.css';
+import { BiSolidShow } from 'react-icons/Bi';
+import { AiFillEyeInvisible } from 'react-icons/ai';
 
 const Register = () => {
+
+    const [show, setshow]= useState(false);
+
+
+
+    const handleCreateUser=(e)=>{
+        e.preventDefault();
+        const form = e.target;
+        const name= form.name.value;
+        const email= form.email.value;
+        const password= form.password.value;
+        const terms= form.terms.checked;
+        const newUser={name, email, password, terms};
+        
+        console.log('Created successfully', newUser);
+        
+    }
+
+
     return (
         <div className='body py-10'>
 
@@ -11,7 +32,7 @@ const Register = () => {
                 <h2 className='font-bold text-3xl text-center mb-9'>Create Account</h2>
             </div>
             <div>
-                <form >
+                <form  onSubmit={handleCreateUser}>
                 <div>
                         <label htmlFor="name" className='font-bold text-lg'>Name</label><br />
                         <input type="text" name="name" id="" className='w-full bg-slate-200 p-3 rounded-lg' placeholder='Enter your name' />
@@ -20,9 +41,14 @@ const Register = () => {
                         <label htmlFor="email" className='font-bold text-lg'>Email</label><br />
                         <input type="email" name="email" id="" className='w-full bg-slate-200 p-3 rounded-lg' placeholder='Enter a valid email' />
                     </div>
-                    <div className='my-8'>
+                    <div className='my-8 relative'>
                         <label htmlFor="password" className='font-bold text-lg'>Password</label><br />
-                        <input type="password" name="password" id="" className='w-full bg-slate-200 p-3 rounded-lg' placeholder='Enter password' />
+                        <input type={show ? "text" : "password"} name="password" id="" className='w-full bg-slate-200 text-black p-3 rounded-lg ' placeholder='Enter password' />
+                        <p onClick={()=>setshow(!show)} className='absolute right-4 top-10'>
+                                {
+                                    show? <BiSolidShow className=' text-2xl text-black'></BiSolidShow>:<AiFillEyeInvisible className='text-2xl text-black'></AiFillEyeInvisible>
+                                }
+                            </p>
                     </div>
                     <div className='flex items-center my-5'>
                         <input type="checkbox" name="terms" id="" />&nbsp;
