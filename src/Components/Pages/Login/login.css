@@ -1,0 +1,11 @@
+.login{
+    font-family:'Montserrat', sans-serif;
+    background-image: url('https://i.ibb.co/q7KVXK0/360-F-122719641-V0yw2c-AOrfxs-ON3-He-Wi2-Sf4i-Vxhv27-QO.jpg'),
+    linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    
+}

@@ -48,7 +48,7 @@ const AddProducts = () => {
                         <label htmlFor="category" className='font-semibold text-lg'>Category</label><br />
                         <select name="category" id="category" className='p-2 rounded-lg bg-blue-400 w-full text-white font-bold' required>
                             <option className='font-medium p-2 bg-sky-800' value="phone">Phone</option>
-                            <option className='font-medium p-2 bg-sky-800' value="computer" selected>Computer</option>
+                            <option className='font-medium p-2 bg-sky-800' value="computer" >Computer</option>
                             <option className='font-medium p-2 bg-sky-800' value="headphone">Headphone</option>
                             <option className='font-medium p-2 bg-sky-800' value="watch">Watch</option>
                         </select>

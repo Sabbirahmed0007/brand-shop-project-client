@@ -1,0 +1,11 @@
+.body{
+    font-family:'Montserrat', sans-serif;
+    background-image: url('https://i.ibb.co/VpsQp4K/360-F-119115529-m-Enw3l-Gp-Ldl-Dkf-Lg-Rc-VSb-FRu-Vl6s-MDty.jpg'),
+    linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    
+}
