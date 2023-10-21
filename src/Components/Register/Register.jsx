@@ -21,18 +21,17 @@ const Register = () => {
         const email= form.email.value;
         const password= form.password.value;
         const terms= form.terms.checked;
-        const newUser={name, email, password, terms};
         
         console.log('Created successfully', newUser);
-
+        
         
         // password validation
         if (password.length < 8) {
             console.log("Password must be  8 characters or longer");
             Swal.fire('',"Password must be  8 characters or longer",'error');
-      
+            
             return;
-          } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/) {
+        } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/) {
             return Swal.fire(
               "Your password must contain at least a upperCase characters and a number.",'warning'
             );
@@ -43,14 +42,27 @@ const Register = () => {
         createUser( email, password)
         .then(result=>{
             console.log(result.user);
-            if(result.user.isAnonymous){
+            const userCreatedat= result.user?.metadata?.userCreatedAt;
+            const newUser={name, email, password, terms, userCreatedat};
+            fetch('http://localhost:5000/users',{
+                method:'POST',
+                headers:{
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify(newUser)
+            })
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data)
+                    if(data.insertedId){
 
-                Swal.fire('','Account already exist','error');
-            }
-            else{
-                Swal.fire('Great Job','User created successfully','success')
+                        Swal.fire('Great job','user created successfully','success');
+                        form.reset();
+                    }
+                })
 
-            }
+            
+           
         })
         .catch(error=>{
             console.error('Error', error);

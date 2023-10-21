@@ -11,7 +11,6 @@ import Swal from 'sweetalert2';
 const Login = () => {
 
     const [show, setshow] =useState(false);
-    const[error, setError]= useState('');
 
     const { githubSignIn, googleSignIn,loginUser } = useContext(AuthContext);
 
@@ -20,24 +19,41 @@ const Login = () => {
         e.preventDefault();
 
         const form = e.target;
-        const name = form.name.value;
+        // const name = form.name.value;
         const email= form.email.value;
         const password= form.password.value;
 
-        const userLoggedIn ={ email, password};
-        console.log(userLoggedIn);
-
-
+        
+        
         // sign in user
         loginUser(email, password)
         .then(result=>{
             console.log(result.user);
-            if(result.user.emailVerified){
-                Swal.fire('Great job','User logged in successfully', 'success');
-            }else{
-                Swal.fire('Opps','Please verify your email address','warning')
-            }
-          })
+            
+            const lastloggedAt=result.user?.metadata?.lastSignIntime;
+            const userLoggedIn ={ email, password,lastloggedAt};
+            
+            fetch( `http://localhost:5000/users`,{
+                method:"PATCH",
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(userLoggedIn)
+            })
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data);
+
+                    if(data.modifiedCount>0){
+                        Swal.fire('Great job','User logged in successfully', 'success');
+                        form.reset()
+                    }
+                    else{
+                        Swal.fire('Opps','User already logged in','warning')
+                    }
+              })
+            })
+
 
         
           .catch(error => {
@@ -84,11 +100,12 @@ const Login = () => {
                     <form onSubmit={login}>
                         <div>
                             <label htmlFor="name" className='font-bold text-lg'>Name</label><br />
-                            <input type="text" name="name" id="" className='w-full bg-slate-200 p-3 rounded-lg' placeholder='Enter your name' />
+                            <input type="text" name="name" id="" className='w-full bg-slate-200 p-3 text-black
+                             rounded-lg' placeholder='Enter your name' />
                         </div>
                         <div className='my-8'>
                             <label htmlFor="email" className='font-bold text-lg'>Email</label><br />
-                            <input type="email" name="email" id="" className='w-full bg-slate-200 p-3 rounded-lg' placeholder='Enter a valid email' />
+                            <input type="email" name="email" id="" className='w-full bg-slate-200 text-black p-3 rounded-lg' placeholder='Enter a valid email' />
                         </div>
                         <div className='my-8 relative'>
                             <label htmlFor="password" className='font-bold text-lg'>Password</label><br />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const AddProducts = () => {
 
@@ -15,6 +16,25 @@ const AddProducts = () => {
         const rating = form.rating.value;
         const formData={name, brandName, photo, category, description, price, rating};
         console.log(formData);
+
+        fetch(`http://localhost:5000/data`,{
+            method:'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.acknowledged){
+                Swal.fire('Great job', 'Data/product added successfully', 'success');
+                form.reset();
+            }
+            else{
+                Swal.fire('Sorry','Already added','info')
+            }
+        })
 
     }
 
@@ -49,6 +69,7 @@ const AddProducts = () => {
                         <select name="category" id="category" className='p-2 rounded-lg bg-blue-400 w-full text-white font-bold' required>
                             <option className='font-medium p-2 bg-sky-800' value="phone">Phone</option>
                             <option className='font-medium p-2 bg-sky-800' value="computer" >Computer</option>
+                            <option className='font-medium p-2 bg-sky-800' value="tab" >Tab</option>
                             <option className='font-medium p-2 bg-sky-800' value="headphone">Headphone</option>
                             <option className='font-medium p-2 bg-sky-800' value="watch">Watch</option>
                         </select>

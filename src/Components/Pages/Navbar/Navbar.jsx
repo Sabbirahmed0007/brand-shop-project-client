@@ -9,6 +9,7 @@ const Navbar = () => {
         <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/'}>Home</NavLink></li>
         <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/addproducts'}>Add Products</NavLink></li>
         <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/mycart'}>My Cart</NavLink></li>
+        <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/displaydata'}>All Products</NavLink></li>
         <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/register'}>Register</NavLink></li>
     </div>
 
@@ -58,9 +59,9 @@ const handleLogOut=()=>{
                     </div>
                     <div>
                         {
-                            user? <Link onClick={handleLogOut} className='btn  font-bold btn-sm' to={'/'}>Log Out</Link>
+                            user? <Link onClick={handleLogOut} className='btn  font-bold border-cyan-600 text-cyan-600' to={'/'}>Log Out</Link>
                             :
-                            <Link className='btn  font-bold btn-sm' to={'/login'}>Log In</Link>
+                            <Link className='btn  font-bold  border-fuchsia-500 text-fuchsia-600' to={'/login'}>Log In</Link>
 
                         }
                     </div>

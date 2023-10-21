@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "brandName": "Apple",
+    "brandImage": "https://i.ibb.co/ZVP4H31/download.png"
+  },
+  {
+    "id": 2,
+    "brandName": "Samsung",
+    "brandImage": "https://i.ibb.co/1TDBCpk/gnb-desktop-120x32.png"
+  },
+  {
+    "id": 3,
+    "brandName": "Sony",
+    "brandImage": "https://i.ibb.co/Y3ZNb65/11-119495-sony-logo-png-graphics-transparent-png.jpg"
+  },
+  {
+    "id": 4,
+    "brandName": "Google",
+    "brandImage": "https://i.ibb.co/0yhf2bp/download.png"
+  },
+  {
+    "id": 5,
+    "brandName": "Oppo",
+    "brandImage": "https://i.ibb.co/j8BRtpN/download.png"
+  },
+  {
+    "id": 6,
+    "brandName": "xiaomi",
+    "brandImage": "https://i.ibb.co/LgTP6gR/download.png"
+  }
+]

@@ -8,6 +8,10 @@ import MyCart from '../Pages/MyCart/MyCart';
 import Login from '../Pages/Login/Login';
 import Register from '../Register/Register';
 import Brands from '../Sections/Brands/Brands';
+import DisplayData from '../Pages/DisplayData/DisplayData';
+import BrandData from '../Pages/BrandData/BrandData';
+import PrivateRouter from './PrivateRouter';
+import OurMission from '../Sections/Aboutus/OurMission';
 
 const routes= createBrowserRouter([
     {
@@ -21,11 +25,18 @@ const routes= createBrowserRouter([
             },
             {
                 path:'/addproducts',
-                element:<AddProducts></AddProducts>
+                element:<PrivateRouter><AddProducts></AddProducts></PrivateRouter>
+
             },
             {
+                path:'/ourmission',
+                element:<OurMission></OurMission>
+            },
+
+            {
                 path:'/mycart',
-                element:<MyCart></MyCart>
+                element:<PrivateRouter><MyCart></MyCart></PrivateRouter>
+                
             },
             {
                 path:'/login',
@@ -35,7 +46,20 @@ const routes= createBrowserRouter([
                 path:'/register',
                 element:<Register></Register>
             },
+           
+            {
+                path:'/displaydata',
+                element:<PrivateRouter><DisplayData></DisplayData></PrivateRouter>,
+                loader:()=>fetch('http://localhost:5000/data')
+            },
 
+            {
+                path:'/branddata/:brandName',
+                element:<BrandData></BrandData>,
+                loader:({params})=>fetch(`http://localhost:5000/data/${params.brandName}`)
+
+            }
+         
         ]
     }
 ])
