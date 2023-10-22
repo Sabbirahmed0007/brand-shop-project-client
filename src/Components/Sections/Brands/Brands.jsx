@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 import Brand from '../Brand/Brand';
 
 const Brands = () => {
-    const loadedBrands=useLoaderData();
-    console.log(loadedBrands);
+
+
     
     const [Brands, setBrands]= useState([]);
 
@@ -12,7 +12,7 @@ const Brands = () => {
         fetch(`brands.json`)
         .then(res=> res.json())
         .then(data=>{
-            console.log(data);
+            // console.log(data);
             setBrands(data);
         })
     },[])
@@ -28,7 +28,7 @@ const Brands = () => {
 
 </p>
             </div>
-            <div className=' grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mx-3 my-10 justify-center items-center space-x-2 space-y-4'>
+            <div className=' grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mx-3 my-10 justify-evenly items-center space-x-2 space-y-4'>
                 {Brands.map(brand=><Brand key={brand.id} brand={brand}></Brand>)}
             </div>
         </div>

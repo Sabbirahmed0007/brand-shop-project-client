@@ -17,7 +17,7 @@ const AddProducts = () => {
         const formData={name, brandName, photo, category, description, price, rating};
         console.log(formData);
 
-        fetch(`http://localhost:5000/data`,{
+        fetch(`https://brand-store-server-noiec3304-sabbirahmed0007.vercel.app/data`,{
             method:'POST',
             headers:{
                 'content-type': 'application/json'
@@ -69,9 +69,12 @@ const AddProducts = () => {
                         <select name="category" id="category" className='p-2 rounded-lg bg-blue-400 w-full text-white font-bold' required>
                             <option className='font-medium p-2 bg-sky-800' value="phone">Phone</option>
                             <option className='font-medium p-2 bg-sky-800' value="computer" >Computer</option>
+                            <option className='font-medium p-2 bg-sky-800' value="laptop" >Laptop</option>
                             <option className='font-medium p-2 bg-sky-800' value="tab" >Tab</option>
                             <option className='font-medium p-2 bg-sky-800' value="headphone">Headphone</option>
                             <option className='font-medium p-2 bg-sky-800' value="watch">Watch</option>
+                            <option className='font-medium p-2 bg-sky-800' value="scooter">Scooter</option>
+                            <option className='font-medium p-2 bg-sky-800' value="TV">TV</option>
                         </select>
                     </div>
                     
@@ -94,7 +97,7 @@ const AddProducts = () => {
                     </div>
                     </div>
                     <div className='text-center pt-7'>
-                        <button type='submit' className='btn w-full font-bold hover:bg-yellow-500 bg-yellow-400'>Add Product</button>
+                        <button type='submit' className='btn w-full font-bold hover:bg-yellow-500 bg-yellow-400 text-black'>Add Product</button>
                     </div>
                 </form>
             </div>

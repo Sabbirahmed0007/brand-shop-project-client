@@ -7,6 +7,7 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 import './login.css'
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { updateProfile } from 'firebase/auth';
 
 const Login = () => {
 
@@ -19,7 +20,7 @@ const Login = () => {
         e.preventDefault();
 
         const form = e.target;
-        // const name = form.name.value;
+        const name = form.name.value;
         const email= form.email.value;
         const password= form.password.value;
 
@@ -29,11 +30,24 @@ const Login = () => {
         loginUser(email, password)
         .then(result=>{
             console.log(result.user);
+            // update profile
+            updateProfile(result.user,{
+                displayName:name
             
+            })
+            .then(()=>{
+                console.log("updated successfully")
+            })
+            .catch(error=>{
+
+                console.error(error);
+            }
+            )
+
             const lastloggedAt=result.user?.metadata?.lastSignIntime;
             const userLoggedIn ={ email, password,lastloggedAt};
             
-            fetch( `http://localhost:5000/users`,{
+            fetch( `https://brand-store-server-noiec3304-sabbirahmed0007.vercel.app/users`,{
                 method:"PATCH",
                 headers:{
                     'content-type': 'application/json'
@@ -44,7 +58,7 @@ const Login = () => {
                 .then(data=>{
                     console.log(data);
 
-                    if(data.modifiedCount>0){
+                    if(data.matchedCount>0){
                         Swal.fire('Great job','User logged in successfully', 'success');
                         form.reset()
                     }

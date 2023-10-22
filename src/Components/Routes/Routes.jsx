@@ -7,7 +7,6 @@ import AddProducts from '../Pages/AddProducts/AddProducts';
 import MyCart from '../Pages/MyCart/MyCart';
 import Login from '../Pages/Login/Login';
 import Register from '../Register/Register';
-import Brands from '../Sections/Brands/Brands';
 import DisplayData from '../Pages/DisplayData/DisplayData';
 import BrandData from '../Pages/BrandData/BrandData';
 import PrivateRouter from './PrivateRouter';
@@ -50,13 +49,13 @@ const routes= createBrowserRouter([
             {
                 path:'/displaydata',
                 element:<PrivateRouter><DisplayData></DisplayData></PrivateRouter>,
-                loader:()=>fetch('http://localhost:5000/data')
+                loader:()=>fetch('https://brand-store-server-noiec3304-sabbirahmed0007.vercel.app/data')
             },
 
             {
                 path:'/branddata/:brandName',
                 element:<BrandData></BrandData>,
-                loader:({params})=>fetch(`http://localhost:5000/data/${params.brandName}`)
+                loader:({params})=>fetch(`https://brand-store-server-noiec3304-sabbirahmed0007.vercel.app/data/${params.brandName}`)
 
             }
          

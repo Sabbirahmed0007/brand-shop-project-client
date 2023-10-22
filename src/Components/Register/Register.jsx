@@ -5,6 +5,7 @@ import { BiSolidShow } from 'react-icons/Bi';
 import { AiFillEyeInvisible } from 'react-icons/ai';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
 
@@ -22,7 +23,7 @@ const Register = () => {
         const password= form.password.value;
         const terms= form.terms.checked;
         
-        console.log('Created successfully', newUser);
+        // console.log('Created successfully');
         
         
         // password validation
@@ -42,9 +43,13 @@ const Register = () => {
         createUser( email, password)
         .then(result=>{
             console.log(result.user);
+            //update username
+            updateProfile(result.user, {
+                displayName:name
+            })
             const userCreatedat= result.user?.metadata?.userCreatedAt;
             const newUser={name, email, password, terms, userCreatedat};
-            fetch('http://localhost:5000/users',{
+            fetch('https://brand-store-server-noiec3304-sabbirahmed0007.vercel.app/users',{
                 method:'POST',
                 headers:{
                     'content-type' : 'application/json'
@@ -55,13 +60,12 @@ const Register = () => {
                 .then(data=>{
                     console.log(data)
                     if(data.insertedId){
-
                         Swal.fire('Great job','user created successfully','success');
                         form.reset();
                     }
-                })
+                    
 
-            
+                })
            
         })
         .catch(error=>{
