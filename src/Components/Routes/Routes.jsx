@@ -66,7 +66,7 @@ const routes= createBrowserRouter([
             },
             {
                 path:'/updatedata/:id',
-                element:<UpdateData></UpdateData>,
+                element:<PrivateRouter><UpdateData></UpdateData></PrivateRouter>,
                 // loader:({params})=> fetch(`https://brand-store-server-ntbir785y-sabbirahmed0007.vercel.app/singledata/${params.id}`)
                 loader:({params})=> fetch(`https://brand-store-server-7tjc699uy-sabbirahmed0007.vercel.app/singledata/${params.id}`)
 

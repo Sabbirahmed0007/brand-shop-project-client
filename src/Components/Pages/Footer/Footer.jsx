@@ -7,7 +7,7 @@ const Footer = () => {
             <footer className="footer footer-center p-10 bg-blue-200  text-black">
                 <aside>
                 <div>
-                    <Link className='flex justify-center items-center'><h2 className='text-3xl font-extrabold'><span className=' bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text'>Zeph</span><img src="https://i.ibb.co/7Qp7kfC/logo.png" alt="" className='w-10 inline ' />nix  </h2></Link>
+                    <Link className='flex justify-center items-center'><h2 className='text-3xl font-extrabold'><span className=' bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text'>Zeph</span><img src="https://i.ibb.co/5YGK2nH/logo-removebg-preview.png" alt="" className='w-10 inline ' />nix  </h2></Link>
                 </div>
                 <p className="font-bold">
                     Providing reliable tech since 2020

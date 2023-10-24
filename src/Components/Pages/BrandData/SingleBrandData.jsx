@@ -8,7 +8,7 @@ const SingleBrandData = ({products}) => {
         <div>
 
         {/* Products of brands */}
-            <div className='my-7 rounded-lg shadow-xl py-4 '>
+            <div className='my-7 rounded-lg shadow-xl py-4 bg-slate-200'>
                 <img src={photo} alt="" className='w-full h-96 rounded-t-lg'/>
                 <div className='my-5 mx-4 drop-shadow-md'>
                     <h1 className='font-bold text-2xl my-2 h-20'>{name}</h1>
@@ -17,8 +17,8 @@ const SingleBrandData = ({products}) => {
                     <h2 className='font-medium'><span className='font-bold'>Price</span>: {price}</h2>
                     <h2 className='font-medium my-2'><span className='font-bold'>Rating</span>: {rating}</h2>
                     <div className='grid grid-cols-2 mx-2 gap-2  my-5'>
-                        <Link to={`/updatedata/${_id}`} className='btn w-full btn-warning font-bold '>Updata</Link>
-                        <Link to={`/details/${_id}`} className='btn w-full btn-secondary font-bold '>Details</Link>
+                        <Link to={`/updatedata/${_id}`} className='btn w-full btn-warning font-bold capitalize '>Update</Link>
+                        <Link to={`/details/${_id}`} className='btn w-full btn-secondary font-bold capitalize'>Details</Link>
                     </div>
 
                 </div>

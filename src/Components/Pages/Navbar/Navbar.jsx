@@ -21,13 +21,12 @@ const Navbar = () => {
 
 
     const navLinks=<div className='font-bold flex flex-col lg:flex-row'>
-        <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/'}>Home</NavLink></li>
-        <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/addproducts'}>Add Products</NavLink></li>
-        <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/mycart'}>My Cart</NavLink></li>
-        <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/displaydata'}>All Products</NavLink></li>
-        <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/branddata'}>Brands Products</NavLink></li>
-        {/* <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/updatedata'}>Update</NavLink></li> */}
-        <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/register'}>Register</NavLink></li>
+        <li><NavLink className='bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold focus:underline active:text-red-500' to={'/'}>Home</NavLink></li>
+        <li><NavLink className='bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold focus:underline active:text-red-500' to={'/addproducts'}>Add Products</NavLink></li>
+        <li><NavLink className='bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold focus:underline active:text-red-500' to={'/mycart'}>My Cart</NavLink></li>
+        <li><NavLink className='bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold focus:underline active:text-red-500' to={'/displaydata'}>All Products</NavLink></li>
+        <li><NavLink className='bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold focus:underline active:text-red-500' to={'/branddata'}>Brands Products</NavLink></li>
+        <li><NavLink className='bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold focus:underline active:text-red-500' to={'/register'}>Register</NavLink></li>
     </div>
 
 const handleLogOut=()=>{
@@ -70,7 +69,7 @@ const handleLogOut=()=>{
                                 
                             </label>
                         </div>
-                        <Link className='flex justify-center items-center'><h2 className='text-2xl font-extrabold'><span className=' bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text'>Zeph</span><img src="https://i.ibb.co/7Qp7kfC/logo.png" alt="" className='w-6 inline' />nix  </h2></Link>
+                        <Link className='flex justify-center items-center'><h2 className='text-2xl font-extrabold'><span className=' bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text'>Zeph</span><img src="https://i.ibb.co/5YGK2nH/logo-removebg-preview.png" alt="" className='w-6 inline' />nix  </h2></Link>
                     </div>
                     </div>
                     <div className="navbar-center hidden lg:flex">
