@@ -41,7 +41,7 @@ const AddProducts = () => {
 
 
     return (
-        <div className='md:w-4/5 w-11/12 mx-auto flex justify-center drop-shadow-lg shadow-xl p-4 my-5 rounded-lg'>
+        <div className='md:w-4/5 w-11/12 mx-auto flex justify-center drop-shadow-lg shadow-xl p-4 my-5 rounded-lg' data-aos="zoom-out-down">
             <div className='my-9'>
                 <div>
                     <h2 className='text-3xl text-center my-5 font-bold text-blue-700'>Add The Product</h2>

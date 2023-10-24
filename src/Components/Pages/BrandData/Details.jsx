@@ -32,7 +32,7 @@ console.log(Products);
             <div>
                 <h1 className='font-bold text-xl  text-center'>{name}'s Details</h1>
                 <div className='mx-7 flex my-5 flex-col lg:flex-row items-center'>
-                    <div className='lg:mr-20 flex-1'>
+                    <div className='lg:mr-20 flex-1' data-aos="zoom-out-right">
                         <img src={photo} alt="" className='w-full rounded-md' />
                     </div>
                     <div className='mx-2 my-6 lg:mr-20 flex-1'>
@@ -42,7 +42,7 @@ console.log(Products);
                         <h2 className='font-semibold'><span className='font-bold'>Price : </span>{price}</h2>
                         <h2 className='font-semibold'><span>Rating : </span>{rating}</h2>
                     </div>
-                    <div className='flex-1'>
+                    <div className='flex-1' data-aos="zoom-out-right">
                         <h3>{description}</h3>
 
                         <div   className=' text-center my-8'><button onClick={()=>addToCart(_id)} className='btn btn-accent font-bold'>Add to cart</button></div>

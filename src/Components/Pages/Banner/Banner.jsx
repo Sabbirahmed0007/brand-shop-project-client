@@ -3,7 +3,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className=' banner   drop-shadow-lg font-roboto'>
+        <div className=' banner   drop-shadow-lg font-roboto' data-aos="flip-left">
            
             <div className="carousel w-full">
                 <div id="item1" className="carousel-item w-full">
@@ -12,7 +12,6 @@ const Banner = () => {
                         <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-sm">
                             {/* <p className="mb-5 font-extrabold text-2xl  lg:text-3xl absolute  left-28 top-32 text-black lg:w-72 lg:mx-auto lg:top-20 lg:left-[37%]  md:text-black">A World of Wonders, Where Technology Meets Human Ingenuity.</p> */}
-                            <img src="https://i.ibb.co/GJh6DLH/e56a29647ab8df7b3ecf521c837ccb44.jpg" className='h-44 absolute top-32 left-32 w-60 lg:hidden' alt="" />
                         </div>
                         </div>
                     </div>

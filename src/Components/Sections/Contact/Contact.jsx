@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Contact = () => {
     return (
-        <div className='my-14 bg-violet-300 text-black py-4'>
+        <div className='my-14 bg-violet-300 text-black py-4' data-aos="fade-up">
             <h1 className='capitalize font-bold text-3xl text-center my-4'>Contact with us through</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 space-y-5 text-left px-2'>
+            <div className='grid grid-cols-1 md:grid-cols-2 space-y-5 text-center px-2'>
                 <div className=' mx-auto'>
                     <h1 className=' font-bold text-xl'>Contact Info</h1>
                     <div className='grid grid-cols-2 my-5  mx-1 gap-4'>
@@ -25,10 +25,10 @@ const Contact = () => {
                 <div className=' mx-auto py-4'>
                     <h2 className='font-bold text-2xl my-3'>Follow us on Social Media</h2>
                     <div className='text-center w-3/5 mx-auto flex  justify-center gap-5'>
-                        <a href='https://www.facebook.com' className='font-bold text-3xl'><FaFacebookF className='text-blue-500'></FaFacebookF></a>
-                        <a href='https://www.twitter.com' className='font-bold text-3xl'><FaTwitter className='text-blue-400'></FaTwitter></a>
-                        <a href='https://www.instagram.com' className='font-bold text-3xl'><FaInstagram className=''></FaInstagram></a>
-                        <a href='https://www.linkedin.com' className='font-bold text-3xl'><FaLinkedinIn className='text-blue-800'></FaLinkedinIn></a>
+                        <a href='https://www.facebook.com' className='font-bold text-3xl' data-aos="zoom-out-right"><FaFacebookF className='text-blue-500'></FaFacebookF></a>
+                        <a href='https://www.twitter.com' className='font-bold text-3xl' data-aos="zoom-out-up"><FaTwitter className='text-blue-400'></FaTwitter></a>
+                        <a href='https://www.instagram.com' className='font-bold text-3xl' data-aos="zoom-out-down"><FaInstagram className=''></FaInstagram></a>
+                        <a href='https://www.linkedin.com' className='font-bold text-3xl' data-aos="zoom-out-left"><FaLinkedinIn className='text-blue-800'></FaLinkedinIn></a>
                     </div>
                 </div>
                 

@@ -6,7 +6,7 @@ const DisplaySingleData = ({data}) => {
     const {name, photo, description , brandName, price, rating, _id}=data;
     return (
         <div>
-            <div className='my-10 mx-4 bg-slate-200 drop-shadow-lg rounded-md text-black py-3'>
+            <div className='my-10 mx-4 bg-slate-200 drop-shadow-lg rounded-md text-black py-3' data-aos="zoom-out-right">
                 <img src={photo} alt="" className='w-full h-96 rounded-t-md' />
                 <div className='mx-5 py-4'>
                     <h1 className='my-2 text-xl font-bold uppercase h-16'>{name}</h1>

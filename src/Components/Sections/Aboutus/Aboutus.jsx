@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Aboutus = () => {
     return (
-        <div className='max-w-screen-2xl mx-auto font-roboto'>
+        <div className='max-w-screen-2xl mx-auto font-roboto' data-aos="fade-down">
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                 <img src="https://i.ibb.co/5LCVsbX/istockphoto-527613951-612x612.jpg" className="max-w-sm rounded-lg shadow-2xl" />
