@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import Brands from '../../Sections/Brands/Brands';
 import Aboutus from '../../Sections/Aboutus/Aboutus';
 import { useLoaderData } from 'react-router-dom';
+import Testimonials from '../../Sections/Testimonials/Testimonials';
 
 const Home = () => {
     
@@ -11,6 +12,8 @@ const Home = () => {
             <Banner></Banner>
             <Brands></Brands>
             <Aboutus></Aboutus>
+            <Testimonials></Testimonials>
+
             
         </div>
     );

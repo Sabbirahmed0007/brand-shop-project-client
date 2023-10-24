@@ -71,7 +71,7 @@ const Login = () => {
 
         
           .catch(error => {
-            console.error('Error', error.message);
+            console.error('Error', error);
             Swal.fire('Opps', 'Something went wrong', 'error');
         });
 
@@ -83,9 +83,12 @@ const Login = () => {
         googleSignIn()
         .then(result=>{
             console.log(result.user);
+            Swal.fire('Success', 'Logged in with Google successfully', 'success');
         })
-        .then(error2=>{
-            console.error( error2.message);
+        .catch(error=>{
+            console.error( error);
+            Swal.fire('Opps', 'Something went wrong', 'error');
+
         })
         
 
@@ -96,9 +99,11 @@ const Login = () => {
         githubSignIn()
         .then(result=>{
             console.log(result.user);
+            Swal.fire('Success', 'Logged in with Google successfully', 'success');
         })
-        .then(error=>{
+        .catch(error=>{
             console.error( error.message);
+            Swal.fire('Opps', 'Something went wrong', 'error');
         })
 
     }

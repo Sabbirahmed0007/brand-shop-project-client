@@ -32,7 +32,7 @@ const Register = () => {
             Swal.fire('',"Password must be  8 characters or longer",'error');
             
             return;
-        } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/) {
+        } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/) {
             return Swal.fire(
               "Your password must contain at least a upperCase characters and a number.",'warning'
             );

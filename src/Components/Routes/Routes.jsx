@@ -11,6 +11,8 @@ import DisplayData from '../Pages/DisplayData/DisplayData';
 import BrandData from '../Pages/BrandData/BrandData';
 import PrivateRouter from './PrivateRouter';
 import OurMission from '../Sections/Aboutus/OurMission';
+import Details from '../Pages/BrandData/Details';
+import UpdateData from '../Pages/UpdateData/UpdateData';
 
 const routes= createBrowserRouter([
     {
@@ -45,7 +47,6 @@ const routes= createBrowserRouter([
                 path:'/register',
                 element:<Register></Register>
             },
-           
             {
                 path:'/displaydata',
                 element:<PrivateRouter><DisplayData></DisplayData></PrivateRouter>,
@@ -54,9 +55,26 @@ const routes= createBrowserRouter([
 
             {
                 path:'/branddata/:brandName',
-                element:<BrandData></BrandData>,
+                element:<PrivateRouter><BrandData></BrandData></PrivateRouter>,
                 loader:({params})=>fetch(`https://brand-store-server-noiec3304-sabbirahmed0007.vercel.app/data/${params.brandName}`)
 
+            },
+            {
+                path:'/mycart',
+                element:<PrivateRouter><MyCart></MyCart></PrivateRouter>,
+                // loader: ()=> fetch('https://brand-store-server-qk48k58v0-sabbirahmed0007.vercel.app/cart')
+            },
+            {
+                path:'/updatedata/:id',
+                element:<UpdateData></UpdateData>,
+                // loader:({params})=> fetch(`https://brand-store-server-ntbir785y-sabbirahmed0007.vercel.app/singledata/${params.id}`)
+                loader:({params})=> fetch(`https://brand-store-server-7tjc699uy-sabbirahmed0007.vercel.app/singledata/${params.id}`)
+
+            },
+            {
+                path:'/details/:id',
+                element:<Details></Details>,
+                loader:({params})=> fetch(`https://brand-store-server-ntbir785y-sabbirahmed0007.vercel.app/singledata/${params.id}`)
             }
          
         ]

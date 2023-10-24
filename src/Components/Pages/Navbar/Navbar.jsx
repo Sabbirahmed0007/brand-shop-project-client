@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
 
     const {user, logOut}= useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
 
     const [theme, setTheme]=useState(localStorage.getItem("theme")? localStorage.getItem("theme"): "light")
@@ -25,6 +26,7 @@ const Navbar = () => {
         <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/mycart'}>My Cart</NavLink></li>
         <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/displaydata'}>All Products</NavLink></li>
         <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/branddata'}>Brands Products</NavLink></li>
+        {/* <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/updatedata'}>Update</NavLink></li> */}
         <li><NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline" : ""} to={'/register'}>Register</NavLink></li>
     </div>
 
@@ -32,7 +34,7 @@ const handleLogOut=()=>{
     logOut()
     .then(()=>{
         console.log('You logged out successfully');
-        swal("Good job!", "You Logged out successfully!", "success");
+        Swal.fire("Good job!", "You Logged out successfully!", "success");
     })
     .catch(error=>{
         console.error("Error", error.massage);
@@ -78,7 +80,7 @@ const handleLogOut=()=>{
                     </div>
                     <div className="navbar-end">
                     <div className=" flex items-center justify-center">
-                    <li className='list-none font-bold'><a href="https://www.sabbirahmed3071@gmail.com">{user&& user.displayName}</a></li>
+                    <li className='list-none font-bold text-red-500'><a href="https://www.sabbirahmed3071@gmail.com">{user&& user.displayName}</a></li>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             {
                                 user?<div className="w-10 rounded-full"><img src={user && user.photoURL} /></div>: " "

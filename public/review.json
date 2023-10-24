@@ -1,0 +1,86 @@
+[
+    {
+      "id": 1,
+      "name": "John Smith",
+      "rating": 5,
+      "date": "2023-10-20",
+      "comment": "I purchased a new smartphone from this website, and I'm extremely satisfied with the quality and service. The product arrived on time, and it works perfectly. I highly recommend this site!"
+    },
+    {
+      "id": 2,
+      "name": "Sarah Johnson",
+      "rating": 4,
+      "date": "2023-10-15",
+      "comment": "I've been a regular customer for a while now, and I appreciate the wide range of products available. The customer support is also very responsive and helpful."
+    },
+    {
+      "id": 3,
+      "name": "David Lee",
+      "rating": 5,
+      "date": "2023-10-10",
+      "comment": "I ordered a laptop, and it was delivered in excellent condition. The website's product descriptions are accurate, and the prices are competitive. I'll definitely be back for more purchases."
+    },
+    {
+      "id": 4,
+      "name": "Linda Martinez",
+      "rating": 4,
+      "date": "2023-10-05",
+      "comment": "I had some questions about a product, and the customer support team was quick to respond and address my concerns. Great service and knowledgeable staff."
+    },
+    {
+      "id": 5,
+      "name": "Michael Brown",
+      "rating": 5,
+      "date": "2023-09-30",
+      "comment": "I love the 'How-To' guides on this website. They've been incredibly helpful in setting up and troubleshooting my devices. Keep up the good work!"
+    },
+    {
+      "id": 6,
+      "name": "Emily White",
+      "rating": 4,
+      "date": "2023-09-25",
+      "comment": "This site is my go-to for all things tech. I've purchased headphones, a tablet, and accessories here. The product quality and shipping speed are consistently great."
+    },
+    {
+      "id": 7,
+      "name": "James Robinson",
+      "rating": 5,
+      "date": "2023-09-20",
+      "comment": "I'm impressed by the in-depth product comparisons and reviews on this website. They helped me make an informed decision when buying a gaming laptop. It's now my gaming paradise!"
+    },
+    {
+      "id": 8,
+      "name": "Olivia Davis",
+      "rating": 4,
+      "date": "2023-09-15",
+      "comment": "I recently upgraded my home office with the products I found here. The variety of tech gadgets and office equipment is amazing. Good prices and speedy delivery."
+    },
+    {
+      "id": 9,
+      "name": "William Clark",
+      "rating": 5,
+      "date": "2023-09-10",
+      "comment": "The customer reviews were instrumental in helping me choose the right camera for my photography hobby. I appreciate the community's input on product quality."
+    },
+    {
+      "id": 10,
+      "name": "Sophia Turner",
+      "rating": 4,
+      "date": "2023-09-05",
+      "comment": "I'm not a tech expert, but the 'How-To' guides on this site have made me feel like one! They're easy to follow and have solved many of my tech-related issues."
+    },
+    {
+      "id": 11,
+      "name": "Henry Wilson",
+      "rating": 5,
+      "date": "2023-08-31",
+      "comment": "This website's support team is fantastic. They went above and beyond to help me with a technical problem I had with a device. I'm very grateful for their assistance."
+    },
+    {
+      "id": 12,
+      "name": "Ava Adams",
+      "rating": 4,
+      "date": "2023-08-25",
+      "comment": "I stumbled upon this website while researching smart home tech. I've since bought a smart speaker, thermostat, and lighting system. The guidance here has been invaluable."
+    }
+  ]
